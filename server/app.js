@@ -37,10 +37,13 @@ app.listen(port, () => {
 require("./userDetails");
 require("./imageDetails");
 require("./inquiriesDetails");
+require("./propertyDetails");
+
 
 const User = mongoose.model("UserInfo");
 const Inquiries = mongoose.model("Inquiries");
 const Images = mongoose.model("ImageDetails");
+const Property = mongoose.model("Properties");
 
 //Query in User==================================================================
 app.post("/register", async (req, res) => {
@@ -314,3 +317,50 @@ app.get("/get-image", async (req, res) => {
     });
   } catch (error) {}
 });
+
+//Query for Add Properties
+app.post("/addproperty", async (req, res) => {
+  const {
+    propertytype,
+    sellingprice,
+    description,
+    bedrooms,
+    bathrooms,
+    carparks,
+    floorarea,
+    homefeatures,
+    neighborhoodfeatures,
+    foodhubs,
+    grocery,
+    gym,
+    school,
+    store,
+    hospital,
+    neighborhoodvicinity,
+  } = req.body;
+  try {
+    await Property.create({
+    propertytype,
+    sellingprice,
+    description,
+    bedrooms,
+    bathrooms,
+    carparks,
+    floorarea,
+    homefeatures,
+    neighborhoodfeatures,
+    foodhubs,
+    grocery,
+    gym,
+    school,
+    store,
+    hospital,
+    neighborhoodvicinity,
+    });
+    res.send({ status: "ok" });
+  } catch (error) {
+    res.send({ status: "error" });
+  }
+});
+
+

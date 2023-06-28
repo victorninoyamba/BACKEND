@@ -23,7 +23,7 @@ function App() {
           <Route
             exact
             path="/"
-            element={isLoggedIn == "false" ? <UserDetails /> : <Login />}
+            element={isLoggedIn == "true" ? <UserDetails /> : <Login />}
           />
           <Route path="/sign-in" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
@@ -34,6 +34,7 @@ function App() {
           <Route path="/inquiries" element={<Inquiries />} />
           <Route path="/users" element={<Users />} />
           <Route path="/sendinquiry" element={<SendInquiries />} />
+          <Route path="/addproperty" element={<SendInquiries />} />
         </Routes>
         {/* <ImageUpload/> */}
       </div>
