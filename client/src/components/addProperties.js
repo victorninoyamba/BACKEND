@@ -1,5 +1,5 @@
 import AdminHome from "./adminHome";
-import React, { Component, useState } from "react";
+import React, {useState } from "react";
 
 export default function AddProperties() {
   const [propertytype, setPropertytype] = useState("");
@@ -112,7 +112,7 @@ export default function AddProperties() {
         onChange={(e) => setPropertytype(e.target.value)}
             <option disabled>Choose Type</option>
             <option value="PS">Preselling</option>
-            <option value="RFO">Ready For Occupancyy</option>
+            <option value="RFO">Ready For Occupancy</option>
         </select>
 
         <div>
@@ -202,6 +202,7 @@ export default function AddProperties() {
 </form>
 </div>
 </div>
+    
     </>
   );
 }
